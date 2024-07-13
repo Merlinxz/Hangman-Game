@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hangman-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#hangman {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+#word-to-guess {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.letter {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: transform 0.1s ease-in-out;
+}
+
+#letters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.letter-btn {
+    margin: 5px;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+    background-color: #ffffff;
+    color: #007bff;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.letter-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.letter-btn:active {
+    transform: scale(0.9);
+}
+
+.letter-btn.pressed {
+    animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.alert {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.figure-container line {
+    stroke: #333;
+    stroke-width: 4;
+    transition: stroke 0.3s ease-in-out;
+}
+
+.figure-container .rope {
+    stroke: #654321;
+    stroke-width: 2;
+}
+
+.figure-container .head {
+    fill: #e0a33a;
+    transition: fill 0.3s ease-in-out;
+}
+
+.figure-container .body,
+.figure-container .arm,
+.figure-container .leg {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #333;
+    stroke-width: 4;
+    transition: stroke 0.3s ease-in-out;
+}
+
+#reset-btn {
+    margin-top: 20px;
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    #hangman {
+        max-width: 150px;
+    }
+    #word-to-guess {
+        font-size: 1.5rem;
+    }
+    .letter-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+    #hangman {
+        max-width: 100px;
+    }
+    #word-to-guess {
+        font-size: 1.2rem;
+    }
+    .letter-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    .alert {
+        font-size: 1rem;
+        padding: 5px;
+    }
+}
